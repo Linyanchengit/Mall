@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.AdminProductsDao">
+<!-- 查询商品 -->
+<select id="searchAllProductsByPage" resultType="Product" parameterType="map">
+	select * from products order by id limit #{startIndex}, #{perPageSize}
+</select>
+<!-- 查询所有商品 -->
+<select id="searchAllProducts" resultType="Product" >
+	select * from products where status=1 or status=2
+</select>
+<!-- 查询所有历史商品 -->
+<select id="searchAllhistoryProducts" resultType="Product" >
+	select * from products where status=3
+</select>
+<!-- 下架一个商品 -->
+<update id="Offsale" parameterType="com.shop.entity.Product">
+	update products set status=#{status} where id=#{id}
+</update>
+<!-- 上架一个商品 -->
+<update id="Onsale" parameterType="com.shop.entity.Product">
+	update products set status=#{status} where id=#{id}
+</update>
+<!-- 删除一个商品 -->
+<update id="deleteProductById" parameterType="com.shop.entity.Product">
+	update products set status=#{status} where id=#{id}
+</update>
+<!-- 还原一个商品 -->
+<update id="reductionProduct" parameterType="com.shop.entity.Product">
+	update products set status=#{status} where id=#{id}
+</update>
+<!-- 添加一个商品 -->
+<insert id="addProduct" parameterType="Product">
+	insert into products (id,name,cost,price,category_id,pnum,status,imgurl,description) 
+		values (#{id}, #{name}, #{cost}, #{price}, #{category_id}, #{pnum}, 1,#{imgurl},#{description})
+</insert>
+<!-- 删除多个商品 -->
+<update id="deleteProducts"  parameterType="List">
+	update products set status=3 where id in
+	<foreach item="item" index="index" collection="list"
+	open="(" separator="," close=")">
+		#{item}
+	</foreach>
+</update>
+<select id="searchProductById" resultType="Product" parameterType="String">
+	select * from products where id=#{product_id}
+</select>
+<!-- 根据名字查询 商品-->
+<select id="searchProductByName" resultType="Product" parameterType="String">
+	select * from products where name=#{name} and status!=3
+</select>
+<!-- 根据种类查询商品 -->
+<select id="searchProductByCategory" resultType="Product" parameterType="String">
+	select * from products where category_id=(select category_id from category where category_name=#{category_name}) and status!=3
+</select>
+<update id="updateProductById" parameterType="Product">
+	update products set name=#{name},cost=#{cost},price=#{price},pnum=#{pnum},description=#{description} where id=#{id}
+</update>
+</mapper>

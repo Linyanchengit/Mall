@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.AdminCategorysDao">
+<!-- 查询一个种类名称 -->
+<select id="searchCategory_name" resultType="Category" parameterType="Product" >
+	select * from category where category_id=#{category_id}
+</select>
+<!-- 插入一个种类 -->
+<insert id="insertCategory" parameterType="Category">
+	insert into category (category_name,remarks) values(#{category_name},#{remarks});
+</insert>
+<select id="searchAllCategory" resultType="Category">
+	select * from category
+</select>
+<!-- 删除一个种类 -->
+<delete id="deleteCategory" parameterType="Integer">
+	delete from category where category_id=#{category_id}
+</delete>
+</mapper>
