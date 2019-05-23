@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.BeforeCartsDao">
+	<insert id="addCarts" parameterType="Cart">
+		insert into carts (carts_quantity,carts_total,product_id,user_id) values (#{carts_quantity},#{carts_total},#{product_id},#{user_id})
+	</insert>
+	<delete id="deleteCartById" parameterType="Integer">
+		delete from carts where carts_id=#{carts_id}
+	</delete>
+	<select id="searchAllCarts" resultType="Cart">
+		select * from carts
+	</select>
+	<select id="searchCartById" parameterType="Integer" resultType="Cart">
+		select * from carts where carts_id=#{carts_id}
+	</select>
+</mapper>

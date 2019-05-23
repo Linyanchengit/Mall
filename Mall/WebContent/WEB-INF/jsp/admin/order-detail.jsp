@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${orderitem.product.name }</td>
 					<td>${orderitem.product.price }</td>
 					<td>${orderitem.buynum }</td>
-					<td>${orderitem.buynum }*${orderitem.product.price }</td>
+					<td>${orderitem.sum}</td>
 				</tr>
 			</c:forEach><!--  
 			<tr class="text-c">

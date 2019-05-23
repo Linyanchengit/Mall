@@ -1,19 +1,20 @@
 package com.shop.entity;
 
 public class Cart {
-	private int cards_id;
+	private int carts_id;
 	private int carts_quantity;
 	private double carts_total;
 	private String product_id;
 	private int user_id;
+	private Product product;
 	public Cart() {
 	
 	}
-	public int getCards_id() {
-		return cards_id;
+	public int getCarts_id() {
+		return carts_id;
 	}
-	public void setCards_id(int cards_id) {
-		this.cards_id = cards_id;
+	public void setCarts_id(int carts_id) {
+		this.carts_id = carts_id;
 	}
 	public int getCarts_quantity() {
 		return carts_quantity;
@@ -38,6 +39,12 @@ public class Cart {
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.dao.BeforeOrdersDao">
+	<insert id="addOrder" parameterType="Order">
+		insert into orders (id,money,receiverAddress,receiverName,receiverPhone,status,user_id) values (#{id},#{money},#{receiverAddress},#{receiverName},
+			#{receiverPhone},#{status},#{user_id})
+	</insert>
+	<select id="searchOrdersById" parameterType="Integer" resultType="Order">
+		select * from orders where user_id=#{id}
+	</select>
+</mapper>

@@ -11,6 +11,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias alias="Order" type="com.shop.entity.Order"/>
         <typeAlias alias="Orderitem" type="com.shop.entity.Orderitem"/>
         <typeAlias alias="Admin" type="com.shop.entity.Admin"/>
+        <typeAlias alias="Cart" type="com.shop.entity.Cart"/>
+        <typeAlias alias="User" type="com.shop.entity.User"/>
      </typeAliases>
 	 <mappers>
         <mapper resource="com/shop/mybatis/admin/AdminProductsMapper.xml"/>
@@ -20,5 +22,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <mapper resource="com/shop/mybatis/admin/AdminOrdersMapper.xml"/>
         <mapper resource="com/shop/mybatis/admin/AdminOrderitemsMapper.xml"/>
         <mapper resource="com/shop/mybatis/admin/AdminMapper.xml"/>
+        <mapper resource="com/shop/mybatis/before/BeforeProductsMapper.xml"/>
+        <mapper resource="com/shop/mybatis/before/BeforeCartsMapper.xml"/>
+        <mapper resource="com/shop/mybatis/before/BeforeOrdersMapper.xml"/>
+        <mapper resource="com/shop/mybatis/before/BeforeOrderitemsMapper.xml"/>
+        <mapper resource="com/shop/mybatis/before/BeforeUserMapper.xml"/>
+        <mapper resource="com/shop/mybatis/before/BeforeNoticesMapper.xml"/>
 	</mappers>
 </configuration>

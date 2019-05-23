@@ -12,6 +12,7 @@ public class User {
 	private int state;
 	private String role;
 	private String registTime;
+	private String address;
 	private double amount;
 	
 	public User() {
@@ -88,6 +89,12 @@ public class User {
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 }
